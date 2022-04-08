@@ -1,15 +1,20 @@
-from typing import Optional
-
 from fastapi import FastAPI
+import requests
 
 app = FastAPI()
-
+baseUrl = "https://jsonplaceholder.typicode.com/todos"
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"message": "Hello World"}
 
+@app.get("/todos")
+def read_item():
+    response = requests.get(baseUrl)
+    return {"todos": response.json()}
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/todos/{todo_item}")
+def read_item(todo_item: int):
+    url = baseUrl + "/" + str(todo_item)
+    response = requests.get(url)
+    return {"todos": response.json()}
