@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 fastapi = "*"
 requests = "*"
+pytest = "*"
+pytest-html = "*"
 
 [dev-packages]
 uvicorn = {extras = ["standard"], version = "*"}
