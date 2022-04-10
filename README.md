@@ -2,6 +2,7 @@
 
 ```shell
 Author: Rodrigo Francisco
+Email: rodrigo.faw@gmail.com
 Date: April, 2022
 
 ```
@@ -18,11 +19,18 @@ Since I'm using a third party application, my service is couple with https://jso
 
 ## Installation
 
+Make sure you have python and pipenv install on your computer.
+
+`pipenv`can be install through `pip`
+
 ```shell
 pipenv install
 pipenv shell
 
 uvicorn main:app --reload
+
+# Run the tests
+pytest api_tests.py
 ```
 
 ## Endpoints
